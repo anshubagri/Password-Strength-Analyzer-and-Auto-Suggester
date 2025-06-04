@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Strength Analyzer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="container">
+                    <h1>Password Strength Analyzer</h1>
+                    <input type="text" id="passwordInput" placeholder="Enter your password" onkeyup="analyzePassword()">
+
+                    <div id="meter">
+                        <div id="strengthBar"></div>
+                    </div>
+                    <p id="strengthResult"></p>
+                    <p id="tips"></p>
+
+                    <button onclick="flipCard()">Switch to Auto Suggester</button>
+                </div>
+            </div>
+
+            <div class="flip-card-back">
+                <div class="container">
+                    <h1>Password Auto Suggester</h1>
+                    
+                    <div class="input-group">
+                        <label for="lengthInput">Password Length</label>
+                        <input class="num" type="number" id="lengthInput" min="8" max="30" value="12" placeholder="Length (8-30)">
+                    </div>
+                    
+                    <button class="btn" onclick="suggestPassword()">Suggest Password</button>
+                    <p id="suggestionResult"></p>
+                    <button class="btn" onclick="copyPassword()">Copy Password</button>
+
+                    <button class="btn" onclick="flipCard()">Switch to Analyzer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
